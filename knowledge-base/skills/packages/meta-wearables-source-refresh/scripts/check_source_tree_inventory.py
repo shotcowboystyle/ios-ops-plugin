@@ -17,7 +17,7 @@ from urllib.request import Request, urlopen
 import yaml
 
 
-USER_AGENT = "bishoptech-iosskills-meta-source-refresh/1.0"
+USER_AGENT = "image-ops-plugin-meta-source-refresh/1.0"
 EXPECTED_IOS_PRODUCTS = {
     "MWDATCore",
     "MWDATCamera",

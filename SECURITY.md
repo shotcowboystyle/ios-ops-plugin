@@ -7,7 +7,7 @@ This repository contains documentation, recipes, and agent skill instructions. I
 - API keys, signing certificates, provisioning profiles, tokens, passwords, private prompts, or user data;
 - health, contact, media, account, or device identifiers from real users;
 - private workspace paths or generated test artifacts that reveal local environments;
-- copied credentials or unreviewed model output presented as platform authority.
+- copied credentials or un-reviewed model output presented as platform authority.
 
 ## Reporting a problem
 

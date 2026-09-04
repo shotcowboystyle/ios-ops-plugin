@@ -184,7 +184,7 @@ Register a custom type only when the app owns a meaningful file format.
 ~~~swift
 extension UTType {
     static let bishopNote = UTType(
-        exportedAs: "dev.bishoptech.note",
+        exportedAs: "dev.shotcowboystyle.note",
         conformingTo: .data
     )
 }

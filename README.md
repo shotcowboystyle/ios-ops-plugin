@@ -1,24 +1,12 @@
-# BishopTech iOS 26 Skills Lab
-
-<p align="left">
-  <a href="https://github.com/mbishopfx/bishoptech-iosskills/stargazers"><img src="https://img.shields.io/github/stars/mbishopfx/bishoptech-iosskills?style=flat-square&label=stars" alt="GitHub stars"></a>
-  <a href="https://github.com/mbishopfx/bishoptech-iosskills/issues"><img src="https://img.shields.io/github/issues/mbishopfx/bishoptech-iosskills?style=flat-square&label=issues" alt="GitHub issues"></a>
-  <a href="https://github.com/mbishopfx/bishoptech-iosskills/discussions"><img src="https://img.shields.io/github/discussions/mbishopfx/bishoptech-iosskills?style=flat-square&label=discussions" alt="GitHub discussions"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-9fffe0?style=flat-square" alt="MIT license"></a>
-</p>
+# iOS 26 Skills Lab
 
 > Turn an LLM into a disciplined Apple-native engineering team.
 
 An official-source-grounded knowledge base and portable skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, the wider Apple SDK, and Meta Wearables companion/display experiences.
 
 <p align="center">
-  <img src="docs/agentic-team-map.svg" width="100%" alt="Apple-native agentic engineering team map from app brief through release proof">
-</p>
-
-<p align="center">
   <a href="docs/skills-catalog.md">Explore the skills</a> ·
-  <a href="knowledge-base/README.md">Browse the knowledge base</a> ·
-  <a href="docs/x-launch-kit.md">Share it on X</a>
+  <a href="knowledge-base/README.md">Browse the knowledge base</a>
 </p>
 
 ## The short version
@@ -204,7 +192,6 @@ Ask for a route decision, official sources, availability gates, implementation p
 | [`knowledge-base/skills/dist/`](knowledge-base/skills/dist) | Portable `.skill` archives for agent workflows. |
 | [`docs/skills-catalog.md`](docs/skills-catalog.md) | Purpose, features, outputs, and handoffs for every role. |
 | [`docs/research-log.md`](docs/research-log.md) | Concise expansion record and refresh policy. |
-| [`docs/x-launch-kit.md`](docs/x-launch-kit.md) | Ready-to-post copy, thread structure, topics, and visual asset guidance. |
 
 ## Source and safety boundary
 
@@ -215,8 +202,6 @@ The project is review-ready, not approval-guaranteed. Apple platform behavior, a
 ## Share it
 
 > An open-source Apple-native engineering team for LLMs, plus a source-grounded Meta Wearables extension for DAT, Ray-Ban Display Web Apps, device proof, and privacy-aware iOS companions.
-
-Use the [X launch kit](docs/x-launch-kit.md) for the short post, technical post, seven-part thread, topics, and the project visual.
 
 ## Contributing
 

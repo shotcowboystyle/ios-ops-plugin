@@ -17,7 +17,7 @@ source_snapshot:
   build_test_receipt: "run_ios_target_preflight.py test mode passed; xcodebuild test reported 65 tests in 3 suites on iOS 26.4 simulator"
 
 target:
-  project_root: sibling/bishoptech-sidequest
+  project_root: sibling/image-ops-sidequest
   platform: ios
   app_target: SideQuest
   os_min: iOS 26.0

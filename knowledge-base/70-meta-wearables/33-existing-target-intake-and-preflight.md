@@ -1,7 +1,7 @@
 # Existing target intake and preflight receipt
 
 This receipt connects the Meta Wearables team to the existing Tiny Detour
-(`bishoptech-sidequest`) sibling target without changing that project. It is a
+(`image-ops-sidequest`) sibling target without changing that project. It is a
 redacted routing artifact: the target's simulator build/test evidence is
 recorded below through the portable device-proof runner, while connected and
 physical glasses behavior remains open.
@@ -10,7 +10,7 @@ physical glasses behavior remains open.
 
 | Field | Observed static value | Evidence boundary |
 | --- | --- | --- |
-| Project | `sibling/bishoptech-sidequest` | Actual sibling target inspected 2026-08-22; private absolute path intentionally omitted from the portable receipt. |
+| Project | `sibling/image-ops-sidequest` | Actual sibling target inspected 2026-08-22; private absolute path intentionally omitted from the portable receipt. |
 | Surface scan | `TARGETS_PRESENT`; an iOS target and generic local web surface are detected; Android target absent | Structural target evidence only. The Web App preflight classifies the selected HTML surface as generic because Meta markers and hosted HTTPS delivery are not proven. |
 | iOS target | `SideQuest` in `SideQuest.xcodeproj`; `SideQuestTests` and `TinyDetourActivity` are also declared | `xcodebuild -list -json` passed and returned all three targets. |
 | Deployment/toolchain | iOS 26.0 in `project.yml`; Xcode 26.4 and Swift 6.3 installed; project Swift setting 6.2 | `xcodebuild -showBuildSettings` passed for Debug; simulator SDK was iPhoneSimulator 26.4. |

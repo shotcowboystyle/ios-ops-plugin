@@ -31,7 +31,7 @@ import UniformTypeIdentifiers
 
 extension UTType {
     static let bishopNote = UTType(
-        exportedAs: "dev.bishoptech.note",
+        exportedAs: "dev.shotcowboystyle.note",
         conformingTo: .data
     )
 }
@@ -585,7 +585,7 @@ struct DocumentAcceptanceFixture: Hashable, Sendable {
 let fixture = DocumentAcceptanceFixture(
     target: "iPadOS",
     documentKind: "Note",
-    contentType: "dev.bishoptech.note",
+    contentType: "dev.shotcowboystyle.note",
     formatVersion: 1,
     providerState: "local",
     saveState: "dirty",

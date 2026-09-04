@@ -77,6 +77,27 @@ Their portable `.skill` archives are listed in the [package index](packages/READ
 - [Meta Wearables implementation recipes](packages/meta-wearables-implementation-recipes/SKILL.md)
 - [Meta Wearables source refresh](packages/meta-wearables-source-refresh/SKILL.md)
 
+## Portable install into another repository
+
+Packaged archives are self-contained: every knowledge-base document a skill links
+to is vendored into `references/kb/`, cross-skill links become `../<skill>/`, and
+anything not vendored becomes an upstream URL. Nothing resolves back into this
+repository.
+
+```bash
+python3 scripts/package_skills.py .            # build dist/*.skill
+python3 scripts/validate_skill_bundle.py . --check-archives
+python3 scripts/install_skills.py --list       # available skills and sets
+python3 scripts/install_skills.py /path/to/repo --sets ios-core --agents claude,cursor,codex --prune
+```
+
+The installer unpacks one canonical copy per skill into `.agents/skills/<name>/`,
+writes a discoverable table into a managed block in `AGENTS.md`, and adds thin
+pointers for the agents that look elsewhere (`.claude/skills` symlinks, `.cursor/rules/*.mdc`,
+`GEMINI.md`, `.github/copilot-instructions.md`). Required sibling skills are pulled
+in automatically so `../<skill>/` links resolve. Re-running the installer converges
+instead of accumulating.
+
 ## Sources
 
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)

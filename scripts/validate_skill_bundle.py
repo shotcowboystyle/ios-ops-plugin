@@ -10,14 +10,25 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from zipfile import BadZipFile, ZipFile
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from skill_bundle import (  # noqa: E402
+    DEFAULT_UPSTREAM,
+    MANIFEST,
+    build_stage,
+    is_external,
+    link_targets,
+    split_target,
+)
 
 
 PACKAGE_NAME = re.compile(r"^[a-z0-9][a-z0-9-]{0,62}$")
-LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 REQUIRED_HEADINGS = {
     "read": re.compile(r"^##\s+Read before acting\s*$", re.MULTILINE),
     "fast": re.compile(r"^##\s+Fast path\s*$", re.MULTILINE),
@@ -52,6 +63,11 @@ def parse_args() -> argparse.Namespace:
         help="Also require dist/<package>.skill archives to match package contents",
     )
     parser.add_argument("--json", action="store_true", help="Emit a JSON receipt")
+    parser.add_argument(
+        "--upstream",
+        default=DEFAULT_UPSTREAM,
+        help="Base URL used when packaging documents that are not vendored",
+    )
     return parser.parse_args()
 
 
@@ -68,19 +84,6 @@ def read_frontmatter(text: str) -> dict[str, str] | None:
         key, value = line.split(":", 1)
         values[key.strip()] = value.strip().strip('"').strip("'")
     return values
-
-
-def safe_archive_entries(package_dir: Path) -> list[tuple[str, bytes]]:
-    entries: list[tuple[str, bytes]] = []
-    for path in sorted(package_dir.rglob("*")):
-        if path.is_symlink():
-            raise ValueError(f"symbolic link is not portable: {path}")
-        if not path.is_file() or path.name == ".DS_Store" or "__pycache__" in path.parts:
-            continue
-        if path.suffix == ".pyc":
-            continue
-        entries.append((path.relative_to(package_dir).as_posix(), path.read_bytes()))
-    return entries
 
 
 def validate_package(package_dir: Path, repo_root: Path) -> list[str]:
@@ -112,9 +115,9 @@ def validate_package(package_dir: Path, repo_root: Path) -> list[str]:
     if PLACEHOLDER.search(text):
         errors.append(f"{package_name}: unfinished scaffold placeholder")
 
-    for raw_target in LINK.findall(text):
-        target = raw_target.strip().strip("<>").split("#", 1)[0].split("?", 1)[0]
-        if not target or re.match(r"^(?:[a-z][a-z0-9+.-]*:|//)", target, re.I):
+    for raw_target in link_targets(text):
+        target, _ = split_target(raw_target)
+        if is_external(target):
             continue
         target_path = (skill_path.parent / target).resolve()
         if not target_path.exists():
@@ -127,35 +130,81 @@ def validate_package(package_dir: Path, repo_root: Path) -> list[str]:
     return errors
 
 
-def validate_archive(package_dir: Path, archive_path: Path) -> list[str]:
-    package_name = package_dir.name
+def archive_link_errors(package_name: str, files: dict[str, bytes], known: set[str]) -> list[str]:
+    """Every link in an installed archive must resolve without the repository.
+
+    Allowed destinations are external URLs, paths inside the archive, and
+    `../<sibling>/...` paths that resolve in an install tree where skills are
+    installed as siblings.
+    """
     errors: list[str] = []
+    present = set(files)
+    directories = {
+        str(parent)
+        for name in present
+        for parent in PurePosixPath(name).parents
+        if str(parent) != "."
+    }
+    for name, payload in sorted(files.items()):
+        if not name.endswith(".md"):
+            continue
+        try:
+            text = payload.decode("utf-8")
+        except UnicodeDecodeError:
+            errors.append(f"{package_name}: {name} is not valid UTF-8")
+            continue
+        here = PurePosixPath(name).parent
+        for raw_target in link_targets(text):
+            target, _ = split_target(raw_target)
+            if is_external(target):
+                continue
+            resolved = PurePosixPath(os.path.normpath(str(here / target)))
+            parts = resolved.parts
+            if parts and parts[0] == "..":
+                if len(parts) >= 3 and parts[0] == ".." and parts[1] in known:
+                    continue
+                errors.append(f"{package_name}: {name} escapes the archive: {raw_target}")
+                continue
+            if str(resolved) in present or str(resolved) in directories:
+                continue
+            errors.append(f"{package_name}: {name} has dangling link {raw_target}")
+    return errors
+
+
+def validate_archive(
+    package_dir: Path, archive_path: Path, repo_root: Path, known: set[str], upstream: str
+) -> list[str]:
+    package_name = package_dir.name
     if not archive_path.is_file():
         return [f"{package_name}: missing archive {archive_path}"]
+    stage = build_stage(package_dir, repo_root, upstream)
+    errors = list(stage.errors)
     try:
         with ZipFile(archive_path) as archive:
             names = archive.namelist()
-            expected = {
-                f"{package_name}/{relative}"
-                for relative, _ in safe_archive_entries(package_dir)
-            }
+            expected = {f"{package_name}/{relative}" for relative in stage.files}
             actual = set(names)
-            if actual != expected:
-                missing = sorted(expected - actual)
-                extra = sorted(actual - expected)
-                if missing:
-                    errors.append(f"{package_name}: archive missing {missing}")
-                if extra:
-                    errors.append(f"{package_name}: archive has unexpected {extra}")
+            missing = sorted(expected - actual)
+            extra = sorted(actual - expected)
+            if missing:
+                errors.append(f"{package_name}: archive missing {missing}")
+            if extra:
+                errors.append(f"{package_name}: archive has unexpected {extra}")
             for name in names:
-                if name.startswith("/") or ".." in Path(name).parts:
+                if name.startswith("/") or ".." in PurePosixPath(name).parts:
                     errors.append(f"{package_name}: unsafe archive path {name}")
-            for relative, expected_bytes in safe_archive_entries(package_dir):
+            for relative, payload in stage.files.items():
                 archive_name = f"{package_name}/{relative}"
-                if archive_name in actual and archive.read(archive_name) != expected_bytes:
+                if archive_name in actual and archive.read(archive_name) != payload:
                     errors.append(f"{package_name}: archive content drift for {relative}")
     except (BadZipFile, OSError, ValueError) as exc:
-        errors.append(f"{package_name}: invalid archive: {exc}")
+        return errors + [f"{package_name}: invalid archive: {exc}"]
+    errors.extend(archive_link_errors(package_name, stage.files, known))
+    if MANIFEST not in stage.files:
+        errors.append(f"{package_name}: archive is missing {MANIFEST}")
+    for sibling in sorted(stage.siblings):
+        if sibling not in known:
+            errors.append(f"{package_name}: requires unknown skill {sibling}")
     return errors
 
 
@@ -172,8 +221,17 @@ def main() -> int:
         errors.extend(validate_package(package_dir, root))
     if args.check_archives:
         dist_root = root / "knowledge-base" / "skills" / "dist"
+        known = {package_dir.name for package_dir in package_dirs}
         for package_dir in package_dirs:
-            errors.extend(validate_archive(package_dir, dist_root / f"{package_dir.name}.skill"))
+            errors.extend(
+                validate_archive(
+                    package_dir,
+                    dist_root / f"{package_dir.name}.skill",
+                    root,
+                    known,
+                    args.upstream,
+                )
+            )
         if dist_root.is_dir():
             expected_archives = {f"{package_dir.name}.skill" for package_dir in package_dirs}
             for archive_path in sorted(dist_root.glob("*.skill")):

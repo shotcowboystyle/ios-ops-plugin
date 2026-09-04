@@ -86,7 +86,7 @@ def check_full_reference(
     timeout: float,
 ) -> bool:
     url = full_reference_url(url)
-    request = Request(url, headers={"User-Agent": "bishoptech-iosskills-source-refresh/1.0"})
+    request = Request(url, headers={"User-Agent": "image-ops-plugin-source-refresh/1.0"})
     with urlopen(request, timeout=timeout) as response:
         body = response.read().decode("utf-8", errors="replace")
     observed = [term for term in expected_terms if term.lower() in body.lower()]

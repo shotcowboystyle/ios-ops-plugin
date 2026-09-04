@@ -1,6 +1,6 @@
 # Skill catalog
 
-This catalog explains the purpose, feature set, and handoff for every role-oriented package in the BishopTech iOS 26 Skills Lab.
+This catalog explains the purpose, feature set, and handoff for every role-oriented package in the Shotcowboystyle iOS 26 Skills Lab.
 
 The packages are not generic “write some Swift” prompts. Each role is expected to inspect the real project, consult the relevant official Apple or Swift sources, preserve availability and entitlement gates, state uncertainty, and return evidence that another role can verify.
 

@@ -152,13 +152,13 @@ struct ProjectsApp: App {
                     handleIncomingURL(url)
                 }
                 .onContinueUserActivity(
-                    "com.bishoptech.project",
+                    "com.shotcowboystyle.project",
                     perform: handleIncomingActivity
                 )
         }
         .handlesExternalEvents(matching: [
             "bishop-projects://project",
-            "com.bishoptech.project"
+            "com.shotcowboystyle.project"
         ])
     }
 

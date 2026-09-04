@@ -27,3 +27,5 @@ t221-recipe-check.swift
 
 # Internal planning state is kept outside the public repository
 docs/goals/
+
+scripts/__pycache__/
