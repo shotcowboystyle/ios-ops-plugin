@@ -1,0 +1,44 @@
+{
+  "name": "ios-ops",
+  "description": "Native iOS and Apple-platform engineering guidance — SwiftUI, Liquid Glass, on-device intelligence, framework routing, and device-backed release verification, grounded in a versioned knowledge base.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Curtis Blanton",
+    "email": "public@shotcowboystyle.com",
+    "url": "https://shotcowboystyle.com"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/shotcowboystyle/ios-ops-plugin",
+  "commands": [],
+  "skills": [
+    "./skills/apple-sdk-route/",
+    "./skills/ios-agentic-apple-engineering-team/",
+    "./skills/ios-capability-route-planner/",
+    "./skills/ios-commerce-identity-and-security/",
+    "./skills/ios-companion-communications/",
+    "./skills/ios-data-and-device-services/",
+    "./skills/ios-device-release-proof/",
+    "./skills/ios-media-ml-and-inputs/",
+    "./skills/ios-native-design-verification/",
+    "./skills/ios-on-device-intelligence-evaluation/",
+    "./skills/ios-privacy-performance-release-proof/",
+    "./skills/ios-project-target-architect/",
+    "./skills/ios-source-refresh-and-availability/",
+    "./skills/ios-spatial-graphics-and-games/",
+    "./skills/ios-system-surfaces-and-background/",
+    "./skills/ios-testing-and-release-assurance/",
+    "./skills/liquid-glass-design/",
+    "./skills/on-device-ai-feature/",
+    "./skills/swiftui-native-design/"
+  ],
+  "keywords": [
+    "ios",
+    "swiftui",
+    "liquid-glass",
+    "apple-intelligence",
+    "xcode",
+    "hig",
+    "on-device-ai",
+    "release-verification"
+  ]
+}

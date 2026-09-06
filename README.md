@@ -1,218 +1,92 @@
-# iOS 26 Skills Lab
+[Part of the shotcowboystyle marketplace](https://github.com/shotcowboystyle/ai-plugins)
 
-> Turn an LLM into a disciplined Apple-native engineering team.
+## iOS Ops Plugin
 
-An official-source-grounded knowledge base and portable skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, the wider Apple SDK, and Meta Wearables companion/display experiences.
+**Version:** 0.2.0
 
-<p align="center">
-  <a href="docs/skills-catalog.md">Explore the skills</a> ·
-  <a href="knowledge-base/README.md">Browse the knowledge base</a>
-</p>
+Native iOS and Apple-platform engineering guidance — SwiftUI, Liquid Glass, on-device intelligence, framework routing, and device-backed release verification, grounded in a versioned knowledge base that ships with the plugin.
 
-## The short version
+Pairs with [`meta-wearables-ops`](https://github.com/shotcowboystyle/meta-wearables-ops-plugin), which owns Meta smart-glasses work.
+Each works on its own.
 
-Most AI coding workflows jump from an idea to a code snippet. This lab makes the missing engineering work explicit: capability selection, target and availability gates, native composition, privacy, AI evaluation, accessibility, physical-device proof, signing, and release evidence.
+## Portable by construction
 
-It is designed to help a solo developer work like a small, specialized Apple engineering team while keeping source claims, uncertainty, and proof requirements visible.
+This plugin is generated from a runtime-neutral source of truth in `.agent/`:
 
-## Verified scale
-
-| 1,007 | 976 | 3,081 | 19 | 19 |
-| ---: | ---: | ---: | ---: | ---: |
-| source-linked Markdown files | content pages | official Apple / Swift destinations | role packages | portable `.skill` artifacts |
-
-The verified scale above is the original Apple lane. The Meta extension currently adds 30 route/source pages, twenty-three role packages, focused evaluation fixtures, and twenty-three portable `.skill` artifacts; it is tracked separately so the Apple baseline remains reproducible.
-
-<p align="center">
-  <img src="docs/coverage-overview.svg" width="100%" alt="Coverage chart for source-linked files, content pages, official destinations, role packages, and portable artifacts">
-</p>
-
-## How a task moves
-
-```mermaid
-flowchart LR
-    brief["App brief"] --> gate{"Capability + availability gate"}
-    gate --> architecture["Target + architecture"]
-    gate --> design["Native design"]
-    architecture --> build["Implement smallest route"]
-    design --> build
-    build --> intelligence["On-device AI evaluation"]
-    build --> assurance["Test + audit"]
-    intelligence --> assurance
-    assurance --> device["Physical + system proof"]
-    device --> release["Signed release evidence"]
-    refresh["Source refresh"] -.-> gate
-    refresh -.-> release
-
-    classDef start fill:#102640,stroke:#9fffe0,color:#ffffff
-    classDef gate fill:#173450,stroke:#65b8ff,color:#ffffff
-    classDef work fill:#14283e,stroke:#8fa5bd,color:#ffffff
-    classDef proof fill:#1d3d48,stroke:#9fffe0,color:#ffffff
-    class brief start
-    class gate gate
-    class architecture,design,build,intelligence,assurance,refresh work
-    class device,release proof
+```
+.agent/agent.md                  the agent definition — purpose, constraints, conventions
+.agent/manifest.json             plugin metadata and per-skill metadata
+.agent/skills/<name>/SKILL.md    one skill package each, with its bundled resources
 ```
 
-The orchestrator and every specialist package use the same handoff vocabulary: what was inspected, what the result proves, what it does not prove, and the smallest next gate.
+Skills are packaged directories: a `SKILL.md` body plus any `references/`, `scripts/`,
+and `assets/` it ships. The generator copies those resources verbatim and re-anchors
+every relative link so it still resolves from the generated location.
 
-## Choose your first route
+`AGENTS.md` is generated from those files and can be used verbatim by any agent runtime.
+The Claude Code layer — `skills/` and `.claude-plugin/plugin.json` — is generated too,
+and must not be hand-edited.
 
-| Your task | Start here | What you get |
-| --- | --- | --- |
-| Turn an app idea into a build plan | [Agentic Apple engineering team](knowledge-base/skills/packages/ios-agentic-apple-engineering-team/SKILL.md) | Role routing, source gates, handoffs, risks, and next action |
-| Choose the right framework, target, or extension | [Apple SDK route](knowledge-base/skills/packages/apple-sdk-route/SKILL.md) | Capability matrix, lifecycle ownership, availability, permissions, and fallback |
-| Make the UI feel native and adaptive | [SwiftUI native design](knowledge-base/skills/packages/swiftui-native-design/SKILL.md) | Screen states, navigation, Dynamic Type, accessibility, and preview coverage |
-| Build restrained, functional Liquid Glass | [Liquid Glass design](knowledge-base/skills/packages/liquid-glass-design/SKILL.md) | Material roles, action hierarchy, transitions, reduced-effects fallback, and device review |
-| Add private, reviewable on-device AI | [On-device AI feature](knowledge-base/skills/packages/on-device-ai-feature/SKILL.md) | Typed proposals, model readiness, refusal, user review, deterministic commits, and evaluation |
-| Test, audit, and ship the real app | [Testing and release assurance](knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md) | Swift Testing, UI, accessibility, performance, device, archive, and TestFlight gates |
-| Build an iOS + Meta Wearables experience | [Meta Wearables agentic team](knowledge-base/skills/packages/meta-wearables-agentic-team/SKILL.md) | Exact upstream-role roster, DAT/Web App route selection, camera/audio, Display/input/sensors, device proof, privacy, and source refresh |
-
-For the complete purpose, feature set, outputs, and handoff of every role, open the [full skills catalog](docs/skills-catalog.md).
-
-## The evidence ladder
-
-```mermaid
-flowchart LR
-    source["Source"] --> target["Target / static"]
-    target --> compile["Compile"]
-    compile --> fixture["Fixture / unit"]
-    fixture --> simulator["Simulator / UI"]
-    simulator --> physical["Physical / system"]
-    physical --> signed["Signed artifact"]
-    signed --> distribution["TestFlight / App Store"]
-    distribution --> production["Production"]
+```bash
+python3 scripts/build.py           # regenerate after editing .agent/
+python3 scripts/build.py --check   # fail if anything on disk is stale
 ```
 
-These levels are not a vanity score. A simulator run does not establish accessory behavior; an archive does not establish accessibility; a model response does not establish correctness; a TestFlight upload does not establish production behavior. Use only the levels a claim actually requires.
+## Installation
 
-## Apple role packages (19)
-
-<details>
-<summary><strong>Plan and route</strong> · 4 packages</summary>
-
-- [Agentic Apple engineering team](knowledge-base/skills/packages/ios-agentic-apple-engineering-team/SKILL.md) — coordinate the complete brief-to-proof workflow.
-- [Apple SDK route](knowledge-base/skills/packages/apple-sdk-route/SKILL.md) — map product outcomes to frameworks, APIs, system surfaces, and gates.
-- [iOS capability route planner](knowledge-base/skills/packages/ios-capability-route-planner/SKILL.md) — select the capability lane before selecting an API.
-- [Project, target, and module architect](knowledge-base/skills/packages/ios-project-target-architect/SKILL.md) — design the Xcode project graph and configuration boundaries.
-</details>
-
-<details>
-<summary><strong>Native design</strong> · 3 packages</summary>
-
-- [SwiftUI native design](knowledge-base/skills/packages/swiftui-native-design/SKILL.md) — design adaptive screens, states, navigation, and input behavior.
-- [Liquid Glass design](knowledge-base/skills/packages/liquid-glass-design/SKILL.md) — use glass as functional hierarchy, not decorative blur.
-- [Native design and Liquid Glass verification](knowledge-base/skills/packages/ios-native-design-verification/SKILL.md) — audit whether the implementation is actually native, legible, and accessible.
-</details>
-
-<details>
-<summary><strong>Intelligence and inputs</strong> · 4 packages</summary>
-
-- [On-device AI feature](knowledge-base/skills/packages/on-device-ai-feature/SKILL.md) — design typed, private, reviewable local intelligence.
-- [On-device intelligence evaluation](knowledge-base/skills/packages/ios-on-device-intelligence-evaluation/SKILL.md) — measure quality, safety, availability, latency, energy, and model drift.
-- [Media, ML, and physical inputs](knowledge-base/skills/packages/ios-media-ml-and-inputs/SKILL.md) — route camera, audio, Vision, Core ML, speech, NFC, and sensor pipelines.
-- [Data and device services](knowledge-base/skills/packages/ios-data-and-device-services/SKILL.md) — handle SwiftData, CloudKit, HealthKit, contacts, locations, accessories, and sync truth.
-</details>
-
-<details>
-<summary><strong>System and platform surfaces</strong> · 4 packages</summary>
-
-- [System surfaces and background](knowledge-base/skills/packages/ios-system-surfaces-and-background/SKILL.md) — design widgets, intents, extensions, providers, deep links, and background work.
-- [Companion and communications](knowledge-base/skills/packages/ios-companion-communications/SKILL.md) — route Watch, CarPlay, App Clips, calls, pushes, and notifications.
-- [Spatial, graphics, and games](knowledge-base/skills/packages/ios-spatial-graphics-and-games/SKILL.md) — architect AR, RealityKit, Metal, SpriteKit, GameKit, and GPU-heavy work.
-- [Commerce, identity, and security](knowledge-base/skills/packages/ios-commerce-identity-and-security/SKILL.md) — keep authentication, entitlements, payments, secrets, and trust boundaries explicit.
-</details>
-
-<details>
-<summary><strong>Assurance and release</strong> · 4 packages</summary>
-
-- [Privacy, performance, and release proof](knowledge-base/skills/packages/ios-privacy-performance-release-proof/SKILL.md) — inspect privacy, diagnostics, entitlements, archives, and distribution readiness.
-- [Device and release proof](knowledge-base/skills/packages/ios-device-release-proof/SKILL.md) — define what source, simulator, hardware, signing, and TestFlight evidence establishes.
-- [Testing and release assurance](knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md) — build deterministic tests, UI flows, accessibility audits, AI fixtures, and release gates.
-- [Source refresh and availability](knowledge-base/skills/packages/ios-source-refresh-and-availability/SKILL.md) — refresh routes when Apple docs, SDKs, hardware, or policy changes.
-</details>
-
-## Meta Wearables extension team (23 packages)
-
-The Meta lane is a source-grounded extension for native iOS and Android companion apps using the [Meta Wearables Device Access Toolkit](https://github.com/facebook/meta-wearables-dat-ios) and [DAT Android](https://github.com/facebook/meta-wearables-dat-android), plus separate [Ray-Ban Display Web Apps](https://wearables.developer.meta.com/docs/develop/webapps). It keeps DAT, native Display, Web Apps, MockDevice/browser simulation, and physical-glasses evidence distinct. The current public source snapshot does not establish a runtime mapping for “Gen 3”; use the exact `DeviceType`, capability response, firmware, and hardware result.
-
-- [Meta Wearables agentic team](knowledge-base/skills/packages/meta-wearables-agentic-team/SKILL.md) — coordinate the exact specialist roster, handoffs, and evidence ledger.
-- [Meta Wearables route planner](knowledge-base/skills/packages/meta-wearables-route-planner/SKILL.md) — choose native DAT, native Display, Web App, or phone fallback.
-- [Meta DAT iOS integration](knowledge-base/skills/packages/meta-dat-ios-integration/SKILL.md) — integrate registration, permissions, sessions, and target configuration.
-- [Meta DAT Android integration](knowledge-base/skills/packages/meta-dat-android-integration/SKILL.md) — integrate Maven artifacts, Kotlin lifecycle, Manifest/privacy configuration, and Android target proof.
-- [Meta DAT Android API atlas](knowledge-base/skills/packages/meta-dat-android-api-atlas/SKILL.md) — map exact Android artifacts, Kotlin/Java symbols, 0.9 migrations, Display/MockDevice/debugging, and Android compile gates.
-- [Meta Wearables developer operations](knowledge-base/skills/packages/meta-wearables-developer-operations/SKILL.md) — manage Developer Center organization/project/app identity, versions, channels, testers, telemetry, and recovery without leaking credentials or claiming release proof.
-- [Meta Wearables transport and reliability](knowledge-base/skills/packages/meta-wearables-transport-reliability/SKILL.md) — audit Bluetooth/Wi-Fi/local-network, HFP/A2DP, backpressure, thermal, disconnect, and recovery behavior across iOS and Android.
-- [Meta Wearables debugging and observability](knowledge-base/skills/packages/meta-wearables-debugging-observability/SKILL.md) — diagnose the first DAT failure through read-only live evidence and produce redacted diagnostic handoffs.
-- [Meta Wearables input and sensors](knowledge-base/skills/packages/meta-wearables-input-sensors/SKILL.md) — keep native Display, Web App D-pad/EMG/temple input, browser/phone sensors, event epochs, privacy, and named-target proof distinct.
-- [Meta Wearables security and attestation](knowledge-base/skills/packages/meta-wearables-security-attestation/SKILL.md) — keep iOS/Android identity tuples, callbacks, attestation, Developer Mode, release channels, package/signing secrets, and processing/review claims distinct.
-- [Meta Wearables device compatibility](knowledge-base/skills/packages/meta-wearables-device-compatibility/SKILL.md) — resolve product labels, DAT/artifact revisions, firmware/companion tuples, version-dependency access, Gen 2 evidence, and Gen 3/regular-SDK uncertainty.
-- [Meta Wearables full-SDK audit](knowledge-base/skills/packages/meta-wearables-full-sdk-audit/SKILL.md) — audit the complete public module/capability surface, machine-checked terminology contract, and source-conflict/evidence gates.
-- [Meta device-generation matrix](knowledge-base/70-meta-wearables/16-device-generation-and-runtime-support-matrix.md) — separate consumer naming, SDK identity, runtime capabilities, and Gen 2/Gen 3 evidence.
-- [Meta on-device compliance contract](knowledge-base/70-meta-wearables/17-on-device-compliance-and-runtime-contract.md) — separate glasses-native, phone-local, remote, mixed, and unknown processing with consent, lifecycle, thermal, storage, and fallback gates.
-- [Meta DAT API atlas](knowledge-base/skills/packages/meta-dat-api-atlas/SKILL.md) — map release-anchored modules, symbols, samples, debugging, MCP, and DAT/Web App boundaries.
-- [Meta DAT camera and audio](knowledge-base/skills/packages/meta-dat-camera-audio/SKILL.md) — model media streams, consent, lifecycle, and backpressure.
-- [Meta DAT Display](knowledge-base/skills/packages/meta-dat-display/SKILL.md) — build capability-gated native glasses UI and input.
-- [Meta Wearables Web Apps](knowledge-base/skills/packages/meta-wearables-web-apps/SKILL.md) — build the 600×600 public Web App surface for Ray-Ban Display.
-- [Meta Wearables device proof](knowledge-base/skills/packages/meta-wearables-device-proof/SKILL.md) — run reproducible iOS/Android/Web App target preflight and separate source, mock, simulator, connected, physical, signed, and release evidence.
-- [Meta Wearables privacy and publishing](knowledge-base/skills/packages/meta-wearables-privacy-publishing/SKILL.md) — audit permissions, consent, terms, data flow, and release gates.
-- [Meta Wearables on-device compliance](knowledge-base/skills/packages/meta-wearables-on-device-compliance/SKILL.md) — enforce processing location, raw-data boundaries, thermal/lifecycle fallback, and honest on-device claims.
-- [Meta Wearables operational readiness](knowledge-base/skills/packages/meta-wearables-operational-readiness/SKILL.md) — diagnose companion/firmware/on-glasses-DAT-app, mode/channel, thermal/power, provisioning, and bounded recovery behavior.
-- [Meta Wearables application architecture](knowledge-base/skills/packages/meta-wearables-app-architecture/SKILL.md) — separate shared product state from iOS/Android/DAT/Web App adapters, fallbacks, concurrency, and test seams.
-- [Meta Wearables reference implementation playbooks](knowledge-base/70-meta-wearables/28-reference-implementation-playbooks.md) — turn native Display, camera, audio-first, Web App, and shared-outcome requests into source/evidence-pinned vertical slices.
-- [Meta Wearables implementation recipes](knowledge-base/skills/packages/meta-wearables-implementation-recipes/SKILL.md) — turn selected API rows and playbooks into source-aligned Swift, Kotlin/Java, and Web App scaffolding with compile/privacy/fallback gates.
-- [Meta Wearables source refresh](knowledge-base/skills/packages/meta-wearables-source-refresh/SKILL.md) — maintain release, API, device, and access freshness.
-
-Portable Meta artifacts are listed in the [workspace package index](knowledge-base/skills/packages/README.md).
-
-## Give an LLM a real brief
-
-Start the orchestrator with facts instead of a vague “build me an app” prompt:
-
-```text
-App idea:
-Primary user and highest-consequence failure:
-Target platforms and minimum OS:
-Required Apple capabilities:
-Data, privacy, account, and network boundaries:
-On-device AI role, if any:
-Known physical devices, accessories, and system surfaces:
-Current project files, targets, schemes, and tests:
-Desired evidence level:
+```
+/plugin marketplace add shotcowboystyle/ai-plugins
+/plugin install ios-ops@shotcowboystyle
 ```
 
-Ask for a route decision, official sources, availability gates, implementation plan, test matrix, device/release proof plan, open uncertainties, and the smallest next verifiable step.
+<!-- BEGIN GENERATED: components -->
 
-## Repository map
+## Commands
 
-| Path | Purpose |
-| --- | --- |
-| [`knowledge-base/`](knowledge-base/README.md) | Source-linked Apple and Swift research organized by route and evidence. |
-| [`knowledge-base/skills/packages/`](knowledge-base/skills/packages/README.md) | Human-readable role packages with references, fixtures, and handoff contracts. |
-| [`knowledge-base/skills/dist/`](knowledge-base/skills/dist) | Portable `.skill` archives for agent workflows. |
-| [`docs/skills-catalog.md`](docs/skills-catalog.md) | Purpose, features, outputs, and handoffs for every role. |
-| [`docs/research-log.md`](docs/research-log.md) | Concise expansion record and refresh policy. |
 
-## Source and safety boundary
+## Skills
 
-The material paraphrases and routes official Apple and Swift documentation. It is not a replacement for SDK headers, Xcode diagnostics, current Apple Developer documentation, Human Interface Guidelines, legal advice, or actual device, account, App Store, or production evidence.
+- **apple-sdk-route** — Turn an iOS app idea into an Apple-native framework route, state/data boundary, system-surface plan, permission matrix, and proportional verification plan.
+- **ios-agentic-apple-engineering-team** — Orchestrate source-grounded, native Apple app development as a coordinated engineering team across architecture, Swift/SwiftUI implementation, Liquid Glass design, on-device AI, testing, accessibility, security, privacy, performance, system surfaces, physical-device verification, and release auditing. Use when an LLM is planning, building, reviewing, debugging, or hardening an iOS/iPadOS/watchOS/CarPlay/App Clip/spatial app and the work needs precise Apple SDK routing, role-based handoffs, evidence boundaries, or App Store readiness guidance.
+- **ios-capability-route-planner** — Turn an iOS app idea or feature request into an Apple-native capability route, framework/symbol choices, SwiftUI and Liquid Glass surface plan, on-device AI boundaries, permission/entitlement/privacy matrix, lifecycle/fallback contract, and proportional verification plan. Use when planning, reviewing, or debugging a native iOS/iPadOS/watchOS/CarPlay/App Clip/spatial feature before implementation or when a project has framework, system-surface, device, or evidence confusion.
+- **ios-commerce-identity-and-security** — Route, implement, or review iOS commerce, identity, secrets, local authentication, cryptography, app-integrity, and secure-network features. Use when a feature sells digital goods, accepts Apple Pay, adds Wallet passes, signs users in, protects credentials, gates a local action, or needs server-verified integrity.
+- **ios-companion-communications** — Design, route, implement, or review iOS companion and communication features using WatchConnectivity, CarPlay, App Clips, CallKit, LiveCommunicationKit, PushKit, APNs, and UserNotifications. Use when a feature spans iPhone/Watch, a vehicle screen, an App Clip/full app handoff, VoIP/calling, default calling/dialer behavior, or specialized push delivery.
+- **ios-data-and-device-services** — Route, implement, or review iOS persistence, CloudKit sync, HealthKit, Contacts, EventKit, WeatherKit, HomeKit, Core Bluetooth, Nearby Interaction, and local-network features. Use when an app stores personal data, syncs across devices, reads protected records, discovers accessories, measures proximity, or connects to a local service.
+- **ios-device-release-proof** — Plan and audit evidence for iOS permissions, entitlements, system surfaces, on-device AI, camera/sensors, Watch/CarPlay/App Clips, commerce, networking, accessibility, physical-device behavior, signing, TestFlight, and release claims. Use when deciding whether an iOS feature is actually verified, diagnosing a device-only failure, or preparing a build/release evidence report.
+- **ios-media-ml-and-inputs** — Route, implement, or review iOS media, camera, audio, Vision, Core ML, Natural Language, NFC, MusicKit, ShazamKit, and video-processing features. Use when a feature captures or imports media, runs on-device models, reads tags, accesses Apple Music, identifies audio, or needs measured physical-device performance.
+- **ios-native-design-verification** — Design, implement, or review Apple-native SwiftUI and iOS 26 Liquid Glass surfaces with adaptive layout, semantic controls, accessibility, purposeful motion, and evidence-bound visual verification. Use when a screen should feel native without copying Apple branding or relying on screenshots alone.
+- **ios-on-device-intelligence-evaluation** — Design, implement, evaluate, or review iOS on-device intelligence features using Foundation Models, Vision, Core ML, Speech, Translation, Natural Language, Sound Analysis, and App Intents. Use when a feature generates, extracts, classifies, transcribes, translates, analyzes, or safely acts on user content with Apple intelligence frameworks.
+- **ios-privacy-performance-release-proof** — Audit and plan iOS privacy manifests, required-reason APIs, test plans, Swift Testing/XCTest coverage, OSLog/signposts/MetricKit diagnostics, accessibility task evidence, system-surface behavior, archive validation, TestFlight, App Store Connect, and release claims. Use when a feature touches protected data, third-party SDKs, performance-sensitive UI, accessibility, widgets, App Intents, Live Activities, extensions, or any signed/distributed build.
+- **ios-project-target-architect** — Architect or audit an Apple-platform project before implementation by choosing the correct Xcode targets, Swift modules and packages, extensions, schemes, configurations, capabilities, privacy resources, test plans, and evidence gates for a feature. Use when an iOS/iPadOS/watchOS/macOS/visionOS/CarPlay/App Clip/widget/Live Activity/companion feature needs a target-aware build route or when project structure and proof are unclear.
+- **ios-source-refresh-and-availability** — Refresh an Apple-platform knowledge route or skill bundle when Apple documentation, SDK interfaces, OS availability, entitlements, privacy rules, or release guidance changes. Use to audit source provenance, locate stale claims, update affected Markdown/recipes/packages, and rerun structural, live-link, compile, and packaging validation.
+- **ios-spatial-graphics-and-games** — Route, implement, or review iOS and visionOS spatial, AR, 2D game, 3D scene, custom Metal, and Game Center features. Use when a feature uses camera/world tracking, RealityKit entities, RealityView or ImmersiveSpace, SpriteKit, GameplayKit, Metal, controllers, or GameKit multiplayer and needs measured performance and physical-device proof.
+- **ios-system-surfaces-and-background** — Route, design, implement, or review iOS files/photos, WebKit/PDF, sharing, widgets, Live Activities, app extensions, File Provider, App Groups, and BackgroundTasks including iOS 26 continuous background work. Use when a feature leaves the main app process, touches user-owned documents/media, needs a system surface, or asks for background execution.
+- **ios-testing-and-release-assurance** — Design, implement, review, or audit native Apple app tests and release evidence across Swift Testing, XCTest, XCUIAutomation, accessibility, Liquid Glass, on-device AI evaluation, performance, physical devices, system surfaces, archives, and TestFlight. Use when an LLM or solo developer needs a precise evidence plan or must determine what a green test actually proves.
+- **liquid-glass-design** — Create or review native iOS 26 Liquid Glass interfaces using system surfaces first, justified custom effects, adaptable hierarchy, and device-aware verification.
+- **on-device-ai-feature** — Design, implement, or audit an Apple on-device intelligence feature with a narrow framework route, explicit availability, reviewable output, privacy boundaries, and device evaluation.
+- **swiftui-native-design** — Design, review, or implement native SwiftUI iOS screens and flows with adaptive state, accessibility, previews, and evidence-bound verification.
 
-The project is review-ready, not approval-guaranteed. Apple platform behavior, availability, entitlements, privacy rules, hardware support, and release policies can change. Refresh the cited source and installed SDK before relying on a version-sensitive route.
+<!-- END GENERATED: components -->
 
-## Share it
+## Knowledge base
 
-> An open-source Apple-native engineering team for LLMs, plus a source-grounded Meta Wearables extension for DAT, Ray-Ban Display Web Apps, device proof, and privacy-aware iOS companions.
+`knowledge-base/` ships with the plugin and is what the skills route into. Skills link
+into it with relative paths that resolve inside the installed tree. Provenance lives in
+`knowledge-base/sources/`, which records which upstream documents back the corpus and
+when they were last checked.
 
-## Contributing
+## Conventions
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening a pull request. Keep new routes source-linked, version-aware, scoped to the relevant Apple target and device, and explicit about what the evidence does not prove.
+- **Cite or say you cannot.** Substantive claims trace to a knowledge-base document or to
+  upstream documentation. Uncited claims are marked unverified.
+- **Written is not verified.** Documentation says one thing; a device shows another. The
+  two are never conflated.
+- **Never invent a proof.** An unrun verification leaves its row empty.
+
+## Author
+
+Curtis Blanton — [shotcowboystyle.com](https://shotcowboystyle.com)
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
-
-## Official starting points
-
-- [Apple Developer Documentation](https://developer.apple.com/documentation/)
-- [SwiftUI](https://developer.apple.com/documentation/swiftui/)
-- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+MIT

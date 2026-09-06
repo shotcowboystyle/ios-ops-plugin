@@ -1,5 +1,14 @@
 # Skill catalog
 
+
+> **Structure note (2026-09-06).** This repository was split. The 19 Apple/iOS skill
+> packages now live at `.agent/skills/<name>/` and generate into `skills/<name>/`; the
+> 23 Meta Wearables packages moved to
+> [meta-wearables-ops-plugin](https://github.com/shotcowboystyle/meta-wearables-ops-plugin).
+> The `.skill` archive pipeline (`package_skills.py`, `install_skills.py`, `sets.json`)
+> was retired in favour of `scripts/build.py`. Passages below that describe the old
+> single-repo layout are kept as a record of how it was, not as current instructions.
+
 This catalog explains the purpose, feature set, and handoff for every role-oriented package in the Shotcowboystyle iOS 26 Skills Lab.
 
 The packages are not generic “write some Swift” prompts. Each role is expected to inspect the real project, consult the relevant official Apple or Swift sources, preserve availability and entitlement gates, state uncertainty, and return evidence that another role can verify.
@@ -8,19 +17,19 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 | If the task sounds like… | Start with… |
 | --- | --- |
-| “Turn this app idea into the right Apple architecture.” | [Agentic Apple engineering team](../knowledge-base/skills/packages/ios-agentic-apple-engineering-team/SKILL.md), then [capability route planner](../knowledge-base/skills/packages/ios-capability-route-planner/SKILL.md) |
-| “Which framework, target, extension, entitlement, or system surface should we use?” | [Apple SDK route](../knowledge-base/skills/packages/apple-sdk-route/SKILL.md) and [project, target, and module architect](../knowledge-base/skills/packages/ios-project-target-architect/SKILL.md) |
-| “Make this feel native, adaptive, accessible, and Liquid Glass.” | [SwiftUI native design](../knowledge-base/skills/packages/swiftui-native-design/SKILL.md), [Liquid Glass design](../knowledge-base/skills/packages/liquid-glass-design/SKILL.md), and [native design verification](../knowledge-base/skills/packages/ios-native-design-verification/SKILL.md) |
-| “Add Apple Intelligence, Foundation Models, Core ML, Vision, speech, or another local model.” | [On-device AI feature](../knowledge-base/skills/packages/on-device-ai-feature/SKILL.md) and [on-device intelligence evaluation](../knowledge-base/skills/packages/ios-on-device-intelligence-evaluation/SKILL.md) |
-| “Test, audit, profile, run on hardware, archive, or ship.” | [Testing and release assurance](../knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md), [device and release proof](../knowledge-base/skills/packages/ios-device-release-proof/SKILL.md), and [privacy, performance, and release proof](../knowledge-base/skills/packages/ios-privacy-performance-release-proof/SKILL.md) |
-| “Apple changed something; refresh the route and packages.” | [Source refresh and availability maintenance](../knowledge-base/skills/packages/ios-source-refresh-and-availability/SKILL.md) |
-| “Build an iOS app for Meta glasses or the Ray-Ban Display.” | [Meta Wearables agentic team](../knowledge-base/skills/packages/meta-wearables-agentic-team/SKILL.md), then [Meta route planner](../knowledge-base/skills/packages/meta-wearables-route-planner/SKILL.md) |
+| “Turn this app idea into the right Apple architecture.” | [Agentic Apple engineering team](../.agent/skills/ios-agentic-apple-engineering-team/SKILL.md), then [capability route planner](../.agent/skills/ios-capability-route-planner/SKILL.md) |
+| “Which framework, target, extension, entitlement, or system surface should we use?” | [Apple SDK route](../.agent/skills/apple-sdk-route/SKILL.md) and [project, target, and module architect](../.agent/skills/ios-project-target-architect/SKILL.md) |
+| “Make this feel native, adaptive, accessible, and Liquid Glass.” | [SwiftUI native design](../.agent/skills/swiftui-native-design/SKILL.md), [Liquid Glass design](../.agent/skills/liquid-glass-design/SKILL.md), and [native design verification](../.agent/skills/ios-native-design-verification/SKILL.md) |
+| “Add Apple Intelligence, Foundation Models, Core ML, Vision, speech, or another local model.” | [On-device AI feature](../.agent/skills/on-device-ai-feature/SKILL.md) and [on-device intelligence evaluation](../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md) |
+| “Test, audit, profile, run on hardware, archive, or ship.” | [Testing and release assurance](../.agent/skills/ios-testing-and-release-assurance/SKILL.md), [device and release proof](../.agent/skills/ios-device-release-proof/SKILL.md), and [privacy, performance, and release proof](../.agent/skills/ios-privacy-performance-release-proof/SKILL.md) |
+| “Apple changed something; refresh the route and packages.” | [Source refresh and availability maintenance](../.agent/skills/ios-source-refresh-and-availability/SKILL.md) |
+| “Build an iOS app for Meta glasses or the Ray-Ban Display.” | [Meta Wearables agentic team](../.agent/skills/meta-wearables-agentic-team/SKILL.md), then [Meta route planner](../.agent/skills/meta-wearables-route-planner/SKILL.md) |
 
 ## Complete role catalog
 
 ### 1. Agentic Apple engineering team
 
-[Open the package](../knowledge-base/skills/packages/ios-agentic-apple-engineering-team/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-agentic-apple-engineering-team.skill)
+[Open the package](../.agent/skills/ios-agentic-apple-engineering-team/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-agentic-apple-engineering-team.skill)
 
 **Use it for:** coordinating a complete app-building task from brief to evidence-backed handoff.
 
@@ -30,7 +39,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 2. Apple SDK route
 
-[Open the package](../knowledge-base/skills/packages/apple-sdk-route/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/apple-sdk-route.skill)
+[Open the package](../.agent/skills/apple-sdk-route/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/apple-sdk-route.skill)
 
 **Use it for:** mapping a product outcome to Apple frameworks, APIs, system surfaces, permissions, entitlements, targets, and proof.
 
@@ -40,7 +49,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 3. iOS capability route planner
 
-[Open the package](../knowledge-base/skills/packages/ios-capability-route-planner/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-capability-route-planner.skill)
+[Open the package](../.agent/skills/ios-capability-route-planner/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-capability-route-planner.skill)
 
 **Use it for:** deciding what the app must do before deciding which API to call.
 
@@ -50,7 +59,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 4. iOS project, target, and module architect
 
-[Open the package](../knowledge-base/skills/packages/ios-project-target-architect/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-project-target-architect.skill)
+[Open the package](../.agent/skills/ios-project-target-architect/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-project-target-architect.skill)
 
 **Use it for:** designing the Xcode project graph before implementation expands.
 
@@ -60,7 +69,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 5. SwiftUI native design
 
-[Open the package](../knowledge-base/skills/packages/swiftui-native-design/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/swiftui-native-design.skill)
+[Open the package](../.agent/skills/swiftui-native-design/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/swiftui-native-design.skill)
 
 **Use it for:** designing adaptive SwiftUI screens, components, navigation, previews, and state-driven UI.
 
@@ -70,7 +79,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 6. Liquid Glass design
 
-[Open the package](../knowledge-base/skills/packages/liquid-glass-design/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/liquid-glass-design.skill)
+[Open the package](../.agent/skills/liquid-glass-design/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/liquid-glass-design.skill)
 
 **Use it for:** adopting Liquid Glass as a functional, system-first design material.
 
@@ -80,7 +89,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 7. iOS native design and Liquid Glass verification
 
-[Open the package](../knowledge-base/skills/packages/ios-native-design-verification/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-native-design-verification.skill)
+[Open the package](../.agent/skills/ios-native-design-verification/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-native-design-verification.skill)
 
 **Use it for:** auditing whether an implementation actually feels native rather than merely decorated.
 
@@ -90,7 +99,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 8. On-device AI feature
 
-[Open the package](../knowledge-base/skills/packages/on-device-ai-feature/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/on-device-ai-feature.skill)
+[Open the package](../.agent/skills/on-device-ai-feature/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/on-device-ai-feature.skill)
 
 **Use it for:** adding a local intelligence feature without letting a model become an unreviewed product authority.
 
@@ -100,7 +109,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 9. iOS on-device intelligence evaluation
 
-[Open the package](../knowledge-base/skills/packages/ios-on-device-intelligence-evaluation/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-on-device-intelligence-evaluation.skill)
+[Open the package](../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-on-device-intelligence-evaluation.skill)
 
 **Use it for:** determining whether an AI feature is useful, safe, repeatable, and appropriate for the device and data.
 
@@ -110,7 +119,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 10. iOS media, ML, and physical inputs
 
-[Open the package](../knowledge-base/skills/packages/ios-media-ml-and-inputs/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-media-ml-and-inputs.skill)
+[Open the package](../.agent/skills/ios-media-ml-and-inputs/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-media-ml-and-inputs.skill)
 
 **Use it for:** camera, microphone, media, Vision, Core ML, Natural Language, NFC, MusicKit, ShazamKit, and other physical-input pipelines.
 
@@ -120,7 +129,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 11. iOS data and device services
 
-[Open the package](../knowledge-base/skills/packages/ios-data-and-device-services/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-data-and-device-services.skill)
+[Open the package](../.agent/skills/ios-data-and-device-services/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-data-and-device-services.skill)
 
 **Use it for:** SwiftData, CloudKit, HealthKit, Contacts, EventKit, WeatherKit, HomeKit, Bluetooth, Nearby Interaction, Network, and related services.
 
@@ -130,7 +139,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 12. iOS system surfaces and background
 
-[Open the package](../knowledge-base/skills/packages/ios-system-surfaces-and-background/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-system-surfaces-and-background.skill)
+[Open the package](../.agent/skills/ios-system-surfaces-and-background/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-system-surfaces-and-background.skill)
 
 **Use it for:** widgets, Live Activities, controls, App Intents, document providers, PhotosUI, WebKit, sharing, extensions, App Groups, and background tasks.
 
@@ -140,7 +149,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 13. iOS companion and communications
 
-[Open the package](../knowledge-base/skills/packages/ios-companion-communications/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-companion-communications.skill)
+[Open the package](../.agent/skills/ios-companion-communications/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-companion-communications.skill)
 
 **Use it for:** WatchConnectivity, CarPlay, App Clips, CallKit, LiveCommunicationKit, PushKit, APNs, and notifications.
 
@@ -150,7 +159,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 14. iOS spatial, graphics, and games
 
-[Open the package](../knowledge-base/skills/packages/ios-spatial-graphics-and-games/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-spatial-graphics-and-games.skill)
+[Open the package](../.agent/skills/ios-spatial-graphics-and-games/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-spatial-graphics-and-games.skill)
 
 **Use it for:** ARKit, RealityKit, visionOS surfaces, Metal, SpriteKit, GameplayKit, GameKit, and spatial or graphics-heavy apps.
 
@@ -160,7 +169,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 15. iOS commerce, identity, and security
 
-[Open the package](../knowledge-base/skills/packages/ios-commerce-identity-and-security/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-commerce-identity-and-security.skill)
+[Open the package](../.agent/skills/ios-commerce-identity-and-security/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-commerce-identity-and-security.skill)
 
 **Use it for:** StoreKit 2, PassKit, Apple Pay, Wallet, Sign in with Apple, passkeys, Keychain, LocalAuthentication, CryptoKit, DeviceCheck, App Attest, URLSession, and Network trust.
 
@@ -170,7 +179,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 16. iOS privacy, performance, and release proof
 
-[Open the package](../knowledge-base/skills/packages/ios-privacy-performance-release-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-privacy-performance-release-proof.skill)
+[Open the package](../.agent/skills/ios-privacy-performance-release-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-privacy-performance-release-proof.skill)
 
 **Use it for:** privacy manifests, required-reason APIs, performance diagnostics, MetricKit, OSLog, accessibility evidence, archive inspection, TestFlight, and App Store Connect release work.
 
@@ -180,7 +189,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 17. iOS device and release proof
 
-[Open the package](../knowledge-base/skills/packages/ios-device-release-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-device-release-proof.skill)
+[Open the package](../.agent/skills/ios-device-release-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-device-release-proof.skill)
 
 **Use it for:** deciding what source reading, compilation, simulator work, physical-device runs, signed artifacts, TestFlight, and production checks actually establish.
 
@@ -190,7 +199,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 18. iOS testing and release assurance
 
-[Open the package](../knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-testing-and-release-assurance.skill)
+[Open the package](../.agent/skills/ios-testing-and-release-assurance/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-testing-and-release-assurance.skill)
 
 **Use it for:** Swift Testing, XCTest, XCUIAutomation, accessibility audits, Liquid Glass regression, AI evaluation, performance, physical/system behavior, archives, and TestFlight.
 
@@ -200,7 +209,7 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ### 19. iOS source refresh and availability maintenance
 
-[Open the package](../knowledge-base/skills/packages/ios-source-refresh-and-availability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-source-refresh-and-availability.skill)
+[Open the package](../.agent/skills/ios-source-refresh-and-availability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/ios-source-refresh-and-availability.skill)
 
 **Use it for:** refreshing a route when Apple documentation, SDK interfaces, availability, entitlements, privacy rules, HIG guidance, or release requirements change.
 
@@ -210,11 +219,11 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 
 ## Meta Wearables extension team
 
-These twenty-three packages cover the current public Meta Wearables development surface for iOS/Android companions and Meta Ray-Ban Display Web Apps. They keep the native DAT SDKs, their dedicated release-anchored iOS/Android API atlases and parity maps, the 30-row version-pinned API surface register, full-SDK capability auditing, native Display and physical input/sensor semantics, security/attestation and credential boundaries, version/device compatibility, Web Apps, MockDevice/browser simulation, physical glasses, privacy, on-device compliance, transport/reliability, read-only debugging/observability, operational readiness/recovery, shared application architecture, implementation recipes, Developer Center project/release operations, preview/publishing, and source-refresh boundaries explicit. The [machine-readable team manifest](../knowledge-base/skills/packages/meta-wearables-agentic-team/references/team-manifest.yaml) pins the 23 local roles, 32 upstream role handoffs, device-claim gates, and consolidated preflight workflow.
+These twenty-three packages cover the current public Meta Wearables development surface for iOS/Android companions and Meta Ray-Ban Display Web Apps. They keep the native DAT SDKs, their dedicated release-anchored iOS/Android API atlases and parity maps, the 30-row version-pinned API surface register, full-SDK capability auditing, native Display and physical input/sensor semantics, security/attestation and credential boundaries, version/device compatibility, Web Apps, MockDevice/browser simulation, physical glasses, privacy, on-device compliance, transport/reliability, read-only debugging/observability, operational readiness/recovery, shared application architecture, implementation recipes, Developer Center project/release operations, preview/publishing, and source-refresh boundaries explicit. The [machine-readable team manifest](../.agent/skills/meta-wearables-agentic-team/references/team-manifest.yaml) pins the 23 local roles, 32 upstream role handoffs, device-claim gates, and consolidated preflight workflow.
 
 ### 20. Meta Wearables agentic team
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-agentic-team/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-agentic-team.skill)
+[Open the package](../.agent/skills/meta-wearables-agentic-team/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-agentic-team.skill)
 
 **Use it for:** coordinating a full Meta Wearables request across route planning, DAT iOS, media, Display, Web Apps, proof, privacy, and source refresh.
 
@@ -222,7 +231,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 21. Meta Wearables route planner
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-route-planner/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-route-planner.skill)
+[Open the package](../.agent/skills/meta-wearables-route-planner/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-route-planner.skill)
 
 **Use it for:** resolving native DAT, native Display, Web App, phone fallback, unsupported models, and ambiguous “regular SDK” or “Gen 3” language before implementation.
 
@@ -230,7 +239,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 22. Meta DAT iOS integration
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-ios-integration/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-ios-integration.skill)
+[Open the package](../.agent/skills/meta-dat-ios-integration/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-ios-integration.skill)
 
 **Use it for:** adding or reviewing the official DAT iOS package, registration, permissions, callbacks, session lifecycle, target configuration, and 0.9 migration traps.
 
@@ -238,7 +247,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 23. Meta DAT API atlas
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-api-atlas/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-api-atlas.skill)
+[Open the package](../.agent/skills/meta-dat-api-atlas/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-api-atlas.skill)
 
 **Use it for:** mapping release-anchored public DAT modules, symbols, lifecycle, camera/photo, HFP/A2DP, Display, MockDevice, samples, debugging, MCP, and the DAT/Web Apps boundary.
 
@@ -246,7 +255,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 24. Meta DAT Android API atlas
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-android-api-atlas/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-android-api-atlas.skill)
+[Open the package](../.agent/skills/meta-dat-android-api-atlas/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-android-api-atlas.skill)
 
 **Use it for:** mapping exact Android Maven artifacts, Kotlin/Java symbols, `DatResult`/`Flow` contracts, 0.9 camera/Display/DAM/R8 migrations, Android debugging, MockDevice, and the DAT/Web Apps boundary.
 
@@ -254,7 +263,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 25. Meta Wearables full-SDK audit
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-full-sdk-audit/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-full-sdk-audit.skill)
+[Open the package](../.agent/skills/meta-wearables-full-sdk-audit/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-full-sdk-audit.skill)
 
 **Use it for:** auditing “full SDK,” “regular SDK,” all-capability, Gen 2/Gen 3, Meta Glasses, Ray-Ban Display, and iOS/Android parity requests against the product-label/SDK-identity/runtime-capability matrix, four runtime DAT module/artifact lanes plus the iOS test-only MockDevice client, Web Apps runtime, source conflicts, and evidence gates.
 
@@ -262,7 +271,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 26. Meta DAT Android integration
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-android-integration/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-android-integration.skill)
+[Open the package](../.agent/skills/meta-dat-android-integration/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-android-integration.skill)
 
 **Use it for:** integrating the public DAT Android route with Maven artifacts, Kotlin lifecycle, Manifest/privacy configuration, `DatResult`, `Flow`/`StateFlow`, R8, and Android target proof.
 
@@ -270,7 +279,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 27. Meta DAT camera and audio
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-camera-audio/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-camera-audio.skill)
+[Open the package](../.agent/skills/meta-dat-camera-audio/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-camera-audio.skill)
 
 **Use it for:** camera previews, capture, audio, transcription, media ownership, AVFoundation boundaries, backpressure, consent, and clean cancellation.
 
@@ -278,7 +287,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 28. Meta DAT Display
 
-[Open the package](../knowledge-base/skills/packages/meta-dat-display/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-display.skill)
+[Open the package](../.agent/skills/meta-dat-display/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-dat-display.skill)
 
 **Use it for:** native glasses Display surfaces, capability checks, compact state, ButtonGroup/input, focus, clear teardown, and phone handoff.
 
@@ -286,7 +295,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 29. Meta Wearables Web Apps
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-web-apps/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-web-apps.skill)
+[Open the package](../.agent/skills/meta-wearables-web-apps/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-web-apps.skill)
 
 **Use it for:** HTML/CSS/JavaScript experiences delivered to Ray-Ban Display through the official Web App route.
 
@@ -294,7 +303,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 30. Meta Wearables device proof
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-device-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-device-proof.skill)
+[Open the package](../.agent/skills/meta-wearables-device-proof/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-device-proof.skill)
 
 **Use it for:** freezing a reproducible iOS/Android/Web App target preflight, then deciding what source, target/static, build, MockDevice, browser simulator, connected device, and physical glasses evidence actually establishes before executing the named-task device/release packet.
 
@@ -302,7 +311,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 31. Meta Wearables privacy and publishing
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-privacy-publishing/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-privacy-publishing.skill)
+[Open the package](../.agent/skills/meta-wearables-privacy-publishing/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-privacy-publishing.skill)
 
 **Use it for:** camera/audio consent, permissions, data flow, privacy manifests, Meta terms, acceptable use, review metadata, and preview/release gates.
 
@@ -310,7 +319,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 32. Meta Wearables on-device compliance
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-on-device-compliance/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-on-device-compliance.skill)
+[Open the package](../.agent/skills/meta-wearables-on-device-compliance/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-on-device-compliance.skill)
 
 **Use it for:** enforcing glasses-native versus phone-local versus remote processing claims, raw camera/audio/sensor boundaries, consent, thermal/lifecycle/network fallback, local-first behavior, and runtime compliance across DAT and Web Apps.
 
@@ -318,7 +327,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 33. Meta Wearables operational readiness
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-operational-readiness/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-operational-readiness.skill)
+[Open the package](../.agent/skills/meta-wearables-operational-readiness/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-operational-readiness.skill)
 
 **Use it for:** diagnosing companion, firmware, on-glasses DAT-app, Developer Mode, release-channel, update-required, thermal/power, transport, and recovery problems without exposing credentials or overstating evidence.
 
@@ -326,7 +335,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 34. Meta Wearables application architecture
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-app-architecture/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-app-architecture.skill)
+[Open the package](../.agent/skills/meta-wearables-app-architecture/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-app-architecture.skill)
 
 **Use it for:** designing shared product state and policy with separate iOS DAT, Android DAT, native Display, Web App, and phone-fallback adapters.
 
@@ -334,7 +343,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 35. Meta Wearables implementation recipes
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-implementation-recipes/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-implementation-recipes.skill)
+[Open the package](../.agent/skills/meta-wearables-implementation-recipes/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-implementation-recipes.skill)
 
 **Use it for:** turning one selected API row and vertical-slice playbook into source-aligned Swift, Kotlin/Java, native Display, or Web App scaffolding without inventing generated signatures.
 
@@ -342,7 +351,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 36. Meta Wearables source refresh
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-source-refresh/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-source-refresh.skill)
+[Open the package](../.agent/skills/meta-wearables-source-refresh/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-source-refresh.skill)
 
 **Use it for:** refreshing DAT iOS/Android, Web Apps, device mappings, terms, API migrations, access gaps, and role-package impact.
 
@@ -350,7 +359,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 37. Meta Wearables developer operations
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-developer-operations/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-developer-operations.skill)
+[Open the package](../.agent/skills/meta-wearables-developer-operations/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-developer-operations.skill)
 
 **Use it for:** managing the Developer Center organization/team, project and platform-app identity, product listing, permission rationale, version/build readiness, release channels, tester accounts, telemetry, and recovery boundaries.
 
@@ -360,7 +369,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 38. Meta Wearables transport and runtime reliability
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-transport-reliability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-transport-reliability.skill)
+[Open the package](../.agent/skills/meta-wearables-transport-reliability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-transport-reliability.skill)
 
 **Use it for:** auditing Bluetooth control, Wi-Fi/local-network parity, HFP/A2DP audio routes, camera/Display backpressure, route changes, background behavior, thermal/power failures, disconnects, and bounded recovery across DAT iOS and Android.
 
@@ -370,7 +379,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 39. Meta Wearables debugging and observability
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-debugging-observability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-debugging-observability.skill)
+[Open the package](../.agent/skills/meta-wearables-debugging-observability/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-debugging-observability.skill)
 
 **Use it for:** diagnosing DAT iOS/Android initialization, registration, permission, device-link, session, camera, audio, Display, transport, and companion-boundary failures, especially when a local DAT Inspector/live-debugging MCP server is available.
 
@@ -380,7 +389,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 40. Meta Wearables input and sensors
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-input-sensors/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-input-sensors.skill)
+[Open the package](../.agent/skills/meta-wearables-input-sensors/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-input-sensors.skill)
 
 **Use it for:** routing native DAT Display callbacks, Web App D-pad/EMG/focus and temple behavior, browser motion/orientation/geolocation, phone sensor fallbacks, lifecycle epochs, sensor privacy, and named-target evidence.
 
@@ -390,7 +399,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 41. Meta Wearables security and attestation
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-security-attestation/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-security-attestation.skill)
+[Open the package](../.agent/skills/meta-wearables-security-attestation/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-security-attestation.skill)
 
 **Use it for:** auditing DAT iOS/Android bundle/package identity, Meta AI callback boundaries, Developer Mode versus release-channel attestation, GitHub package and signing credentials, privacy-manifest/App Store gates, Web App origin boundaries, redaction, and honest on-device claims.
 
@@ -400,7 +409,7 @@ These twenty-three packages cover the current public Meta Wearables development 
 
 ### 42. Meta Wearables device compatibility
 
-[Open the package](../knowledge-base/skills/packages/meta-wearables-device-compatibility/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-device-compatibility.skill)
+[Open the package](../.agent/skills/meta-wearables-device-compatibility/SKILL.md) · [Download the artifact](../knowledge-base/skills/dist/meta-wearables-device-compatibility.skill)
 
 **Use it for:** resolving Gen 2/Gen 3, Meta Glasses, Ray-Ban Display, firmware, Meta AI companion, DAT iOS/Android artifact, Web Apps revision, version-dependency, or device-compatibility questions.
 
@@ -460,5 +469,5 @@ The package archive should contain only the intended skill files. It must not in
 - [Knowledge-base map](../knowledge-base/README.md)
 - [Coverage matrix](../knowledge-base/coverage-matrix.md)
 - [Official source registry](../knowledge-base/sources/official-source-registry.md)
-- [Package index](../knowledge-base/skills/packages/README.md)
+- [Package index](../.agent/skills/README.md)
 - [Contribution guide](../CONTRIBUTING.md)

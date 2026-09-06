@@ -1,5 +1,0 @@
-# Keep Developer Center and GitHub Packages values outside the skill archive.
-local.properties
-.gradle/
-build/
-app/build/
