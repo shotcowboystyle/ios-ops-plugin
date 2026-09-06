@@ -94,9 +94,14 @@ python3 scripts/install_skills.py /path/to/repo --sets ios-core --agents claude,
 The installer unpacks one canonical copy per skill into `.agents/skills/<name>/`,
 writes a discoverable table into a managed block in `AGENTS.md`, and adds thin
 pointers for the agents that look elsewhere (`.claude/skills` symlinks, `.cursor/rules/*.mdc`,
-`GEMINI.md`, `.github/copilot-instructions.md`). Required sibling skills are pulled
-in automatically so `../<skill>/` links resolve. Re-running the installer converges
-instead of accumulating.
+`GEMINI.md`, `.github/copilot-instructions.md`). Every pointer, including the `AGENTS.md`
+index that `codex` selects, is written only for the agents named in `--agents`. Required
+sibling skills are pulled in automatically so `../<skill>/` links resolve. Re-running the
+installer converges instead of accumulating.
+
+`--prune` removes previously installed skills that are absent from the current selection.
+Omit it when the target repository installs skills from another source into the same
+directory, because pruning cannot tell those apart from a stale install.
 
 ## Sources
 

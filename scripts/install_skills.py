@@ -42,7 +42,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--agents",
         default="claude,codex",
-        help=f"Comma-separated agent pointers to write from {','.join(AGENTS)} (default: claude,codex)",
+        help=(
+            f"Comma-separated agent pointers to write from {','.join(AGENTS)} "
+            "(default: claude,codex; `codex` writes the AGENTS.md index)"
+        ),
     )
     parser.add_argument(
         "--no-symlink",
@@ -294,11 +297,13 @@ def main() -> int:
         unpack(catalog[name], target / CANONICAL / name)
     entries = [describe(target / CANONICAL / name) for name in names]
 
-    write_managed(
-        target / "AGENTS.md",
-        index_body(entries),
-        "# Agent instructions\n",
-    )
+    if "codex" in agents:
+        # AGENTS.md is the generic, cross-agent index; `codex` selects it.
+        write_managed(
+            target / "AGENTS.md",
+            index_body(entries),
+            "# Agent instructions\n",
+        )
     if "claude" in agents:
         link_claude(target, names, use_symlink=not args.no_symlink)
     if "cursor" in agents:
