@@ -75,8 +75,8 @@ For implementation, change only the requested screen/component and directly rela
 
 ## Related routes and recipes
 
-- [SwiftUI native design package](../../.agent/skills/swiftui-native-design/SKILL.md)
-- [Liquid Glass design package](../../.agent/skills/liquid-glass-design/SKILL.md)
+- [SwiftUI native design package](../swiftui-native-design/SKILL.md)
+- [Liquid Glass design package](../liquid-glass-design/SKILL.md)
 - [Apple-native design deep dives](../../knowledge-base/21-design-deep-dives/README.md)
 - [SwiftUI and Liquid Glass recipes](../../knowledge-base/70-code-recipes/00-swiftui-and-liquid-glass-recipes.md)
 - [Accessibility, adaptation, and native design recipes](../../knowledge-base/70-code-recipes/12-accessibility-adaptive-and-native-design-recipes.md)

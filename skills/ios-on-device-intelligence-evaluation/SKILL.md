@@ -15,7 +15,7 @@ Use this skill to choose the narrowest intelligence route and keep availability,
 
 - Inspect the actual Xcode targets, deployment target, device family, model resources, language assets, entitlements, usage descriptions, persistence, network/server routes, and current AI adapter.
 - Read the [AI route selector](../../knowledge-base/30-on-device-ai/00-ai-route-selector.md), [Foundation Models mental model](../../knowledge-base/30-on-device-ai/01-foundation-models-mental-model.md), [privacy/availability/fallback guidance](../../knowledge-base/30-on-device-ai/06-privacy-availability-and-fallback.md), [availability/proof matrix](../../knowledge-base/30-on-device-ai/08-on-device-ai-availability-and-proof-matrix.md), and [evaluation/safety/fallback recipe](../../knowledge-base/31-on-device-ai-recipes/05-evaluation-safety-and-fallback.md).
-- Read the [on-device AI feature package](../../.agent/skills/on-device-ai-feature/SKILL.md) and the narrower [media/ML/input package](../../.agent/skills/ios-media-ml-and-inputs/SKILL.md) when capture, Vision, Core ML, audio, or NFC state is part of the route.
+- Read the [on-device AI feature package](../on-device-ai-feature/SKILL.md) and the narrower [media/ML/input package](../ios-media-ml-and-inputs/SKILL.md) when capture, Vision, Core ML, audio, or NFC state is part of the route.
 - Refresh the exact official Apple pages in the Sources section before relying on model availability, device/region/language behavior, API spelling, output safety, tool calling, context limits, or privacy claims.
 
 ## Route workflow
@@ -92,7 +92,7 @@ For implementation, change only the requested target and directly related adapte
 
 ## Related routes and recipes
 
-- [On-device AI feature package](../../.agent/skills/on-device-ai-feature/SKILL.md)
+- [On-device AI feature package](../on-device-ai-feature/SKILL.md)
 - [AI route selector](../../knowledge-base/30-on-device-ai/00-ai-route-selector.md)
 - [Foundation Models mental model](../../knowledge-base/30-on-device-ai/01-foundation-models-mental-model.md)
 - [Privacy, availability, safety, and fallback](../../knowledge-base/30-on-device-ai/06-privacy-availability-and-fallback.md)

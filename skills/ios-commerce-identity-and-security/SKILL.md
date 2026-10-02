@@ -15,7 +15,7 @@ Use this skill to keep purchase, payment, identity, secrets, device-user authent
 
 - Inspect the actual Xcode targets, deployment target, product type, capabilities, entitlements, App Store Connect/merchant/service configuration, server contract, Keychain access groups, URL/transport layer, privacy copy, and existing entitlement/authentication adapters.
 - Read the [commerce/identity/security route](../../knowledge-base/40-framework-routes/05-commerce-identity-and-security.md), [StoreKit and entitlements deep dive](../../knowledge-base/41-framework-deep-dives/02-storekit-and-entitlements.md), [networking/security/identity deep dive](../../knowledge-base/42-framework-deep-dives/03-networking-security-and-identity.md), and [commerce/identity/security recipes](../../knowledge-base/70-code-recipes/17-commerce-identity-and-security-recipes.md).
-- Read the [data/device-services package](../../.agent/skills/ios-data-and-device-services/SKILL.md) when local persistence, CloudKit, account state, or protected personal data is involved. Refresh the exact official Apple pages in the Sources section before relying on an API, entitlement, region/device rule, or server-validation requirement.
+- Read the [data/device-services package](../ios-data-and-device-services/SKILL.md) when local persistence, CloudKit, account state, or protected personal data is involved. Refresh the exact official Apple pages in the Sources section before relying on an API, entitlement, region/device rule, or server-validation requirement.
 
 ## Route workflow
 
@@ -86,7 +86,7 @@ For implementation, change only the requested target and directly related adapte
 - [StoreKit and entitlements](../../knowledge-base/41-framework-deep-dives/02-storekit-and-entitlements.md)
 - [Networking, security, and identity](../../knowledge-base/42-framework-deep-dives/03-networking-security-and-identity.md)
 - [Commerce, identity, and security recipes](../../knowledge-base/70-code-recipes/17-commerce-identity-and-security-recipes.md)
-- [Data and device services package](../../.agent/skills/ios-data-and-device-services/SKILL.md)
+- [Data and device services package](../ios-data-and-device-services/SKILL.md)
 - [Permission, entitlement, and privacy checklist](../../knowledge-base/60-verification/04-permission-entitlement-and-privacy-checklist.md)
 - [Build, device, and release checklist](../../knowledge-base/60-verification/01-build-device-and-release-checklist.md)
 

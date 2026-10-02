@@ -20,8 +20,8 @@ artifacts.
 - Inspect the repository’s knowledge-base map, source registry, coverage and
   availability matrices, relevant route/design/recipe/proof pages, package
   references, and current distributable archive.
-- Read [refresh-ledger.md](../../.agent/skills/ios-source-refresh-and-availability/references/refresh-ledger.md) and
-  [provenance-and-evidence.md](../../.agent/skills/ios-source-refresh-and-availability/references/provenance-and-evidence.md).
+- Read [refresh-ledger.md](references/refresh-ledger.md) and
+  [provenance-and-evidence.md](references/provenance-and-evidence.md).
 - Reopen the exact official Apple/Swift pages and installed SDK interfaces. Use
   official primary sources for availability, entitlement, privacy, HIG, and
   release claims. Treat secondary examples as discovery only.

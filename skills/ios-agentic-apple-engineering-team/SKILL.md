@@ -29,8 +29,8 @@ generic code generator and not a promise of Apple approval.
   behavior. Treat the installed SDK headers and Xcode diagnostics as a second
   authority for the target being built.
 - Load the specialist package that matches the work; use the [role routing
-  reference](../../.agent/skills/ios-agentic-apple-engineering-team/references/role-routing.md), [quality-gate reference](../../.agent/skills/ios-agentic-apple-engineering-team/references/quality-gates.md),
-  and [evaluation fixtures](../../.agent/skills/ios-agentic-apple-engineering-team/references/evaluation-fixtures.md) when judging
+  reference](references/role-routing.md), [quality-gate reference](references/quality-gates.md),
+  and [evaluation fixtures](references/evaluation-fixtures.md) when judging
   whether the bundle behaves precisely enough to publish.
 
 ## Team operating model
@@ -155,22 +155,22 @@ to version-sensitive claims.
 
 Read only the packages needed for the current route:
 
-- [Capability route planner](../../.agent/skills/ios-capability-route-planner/SKILL.md)
-- [Project/target/module architect](../../.agent/skills/ios-project-target-architect/SKILL.md)
-- [SwiftUI native design](../../.agent/skills/swiftui-native-design/SKILL.md)
-- [Liquid Glass design](../../.agent/skills/liquid-glass-design/SKILL.md)
-- [Native design verification](../../.agent/skills/ios-native-design-verification/SKILL.md)
-- [On-device intelligence evaluation](../../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md)
-- [Commerce, identity, and security](../../.agent/skills/ios-commerce-identity-and-security/SKILL.md)
-- [Data and device services](../../.agent/skills/ios-data-and-device-services/SKILL.md)
-- [Media, ML, and physical inputs](../../.agent/skills/ios-media-ml-and-inputs/SKILL.md)
-- [System surfaces and background](../../.agent/skills/ios-system-surfaces-and-background/SKILL.md)
-- [Companion and communications](../../.agent/skills/ios-companion-communications/SKILL.md)
-- [Spatial, graphics, and games](../../.agent/skills/ios-spatial-graphics-and-games/SKILL.md)
-- [Device and release proof](../../.agent/skills/ios-device-release-proof/SKILL.md)
-- [Privacy, performance, and release proof](../../.agent/skills/ios-privacy-performance-release-proof/SKILL.md)
-- [Testing and release assurance](../../.agent/skills/ios-testing-and-release-assurance/SKILL.md)
-- [Source refresh and availability maintenance](../../.agent/skills/ios-source-refresh-and-availability/SKILL.md)
+- [Capability route planner](../ios-capability-route-planner/SKILL.md)
+- [Project/target/module architect](../ios-project-target-architect/SKILL.md)
+- [SwiftUI native design](../swiftui-native-design/SKILL.md)
+- [Liquid Glass design](../liquid-glass-design/SKILL.md)
+- [Native design verification](../ios-native-design-verification/SKILL.md)
+- [On-device intelligence evaluation](../ios-on-device-intelligence-evaluation/SKILL.md)
+- [Commerce, identity, and security](../ios-commerce-identity-and-security/SKILL.md)
+- [Data and device services](../ios-data-and-device-services/SKILL.md)
+- [Media, ML, and physical inputs](../ios-media-ml-and-inputs/SKILL.md)
+- [System surfaces and background](../ios-system-surfaces-and-background/SKILL.md)
+- [Companion and communications](../ios-companion-communications/SKILL.md)
+- [Spatial, graphics, and games](../ios-spatial-graphics-and-games/SKILL.md)
+- [Device and release proof](../ios-device-release-proof/SKILL.md)
+- [Privacy, performance, and release proof](../ios-privacy-performance-release-proof/SKILL.md)
+- [Testing and release assurance](../ios-testing-and-release-assurance/SKILL.md)
+- [Source refresh and availability maintenance](../ios-source-refresh-and-availability/SKILL.md)
 
 ## Open-source bundle boundary
 

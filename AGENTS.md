@@ -198,8 +198,8 @@ generic code generator and not a promise of Apple approval.
   behavior. Treat the installed SDK headers and Xcode diagnostics as a second
   authority for the target being built.
 - Load the specialist package that matches the work; use the [role routing
-  reference](../../.agent/skills/ios-agentic-apple-engineering-team/references/role-routing.md), [quality-gate reference](../../.agent/skills/ios-agentic-apple-engineering-team/references/quality-gates.md),
-  and [evaluation fixtures](../../.agent/skills/ios-agentic-apple-engineering-team/references/evaluation-fixtures.md) when judging
+  reference](references/role-routing.md), [quality-gate reference](references/quality-gates.md),
+  and [evaluation fixtures](references/evaluation-fixtures.md) when judging
   whether the bundle behaves precisely enough to publish.
 
 #### Team operating model
@@ -324,22 +324,22 @@ to version-sensitive claims.
 
 Read only the packages needed for the current route:
 
-- [Capability route planner](../../.agent/skills/ios-capability-route-planner/SKILL.md)
-- [Project/target/module architect](../../.agent/skills/ios-project-target-architect/SKILL.md)
-- [SwiftUI native design](../../.agent/skills/swiftui-native-design/SKILL.md)
-- [Liquid Glass design](../../.agent/skills/liquid-glass-design/SKILL.md)
-- [Native design verification](../../.agent/skills/ios-native-design-verification/SKILL.md)
-- [On-device intelligence evaluation](../../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md)
-- [Commerce, identity, and security](../../.agent/skills/ios-commerce-identity-and-security/SKILL.md)
-- [Data and device services](../../.agent/skills/ios-data-and-device-services/SKILL.md)
-- [Media, ML, and physical inputs](../../.agent/skills/ios-media-ml-and-inputs/SKILL.md)
-- [System surfaces and background](../../.agent/skills/ios-system-surfaces-and-background/SKILL.md)
-- [Companion and communications](../../.agent/skills/ios-companion-communications/SKILL.md)
-- [Spatial, graphics, and games](../../.agent/skills/ios-spatial-graphics-and-games/SKILL.md)
-- [Device and release proof](../../.agent/skills/ios-device-release-proof/SKILL.md)
-- [Privacy, performance, and release proof](../../.agent/skills/ios-privacy-performance-release-proof/SKILL.md)
-- [Testing and release assurance](../../.agent/skills/ios-testing-and-release-assurance/SKILL.md)
-- [Source refresh and availability maintenance](../../.agent/skills/ios-source-refresh-and-availability/SKILL.md)
+- [Capability route planner](../ios-capability-route-planner/SKILL.md)
+- [Project/target/module architect](../ios-project-target-architect/SKILL.md)
+- [SwiftUI native design](../swiftui-native-design/SKILL.md)
+- [Liquid Glass design](../liquid-glass-design/SKILL.md)
+- [Native design verification](../ios-native-design-verification/SKILL.md)
+- [On-device intelligence evaluation](../ios-on-device-intelligence-evaluation/SKILL.md)
+- [Commerce, identity, and security](../ios-commerce-identity-and-security/SKILL.md)
+- [Data and device services](../ios-data-and-device-services/SKILL.md)
+- [Media, ML, and physical inputs](../ios-media-ml-and-inputs/SKILL.md)
+- [System surfaces and background](../ios-system-surfaces-and-background/SKILL.md)
+- [Companion and communications](../ios-companion-communications/SKILL.md)
+- [Spatial, graphics, and games](../ios-spatial-graphics-and-games/SKILL.md)
+- [Device and release proof](../ios-device-release-proof/SKILL.md)
+- [Privacy, performance, and release proof](../ios-privacy-performance-release-proof/SKILL.md)
+- [Testing and release assurance](../ios-testing-and-release-assurance/SKILL.md)
+- [Source refresh and availability maintenance](../ios-source-refresh-and-availability/SKILL.md)
 
 #### Open-source bundle boundary
 
@@ -466,11 +466,11 @@ Return a compact table or document with these fields:
 - [Cross-framework feature lifecycle](../../knowledge-base/41-framework-deep-dives/06-cross-framework-feature-lifecycle.md)
 - [System-surface and extension composition](../../knowledge-base/43-system-framework-deep-dives/06-system-surface-and-extension-composition.md)
 - [Device and companion capability contracts](../../knowledge-base/42-framework-deep-dives/08-device-and-companion-capability-contracts.md)
-- [Apple-native design and Liquid Glass verification](../../.agent/skills/ios-native-design-verification/SKILL.md)
-- [On-device intelligence evaluation](../../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md)
-- [System surfaces and background](../../.agent/skills/ios-system-surfaces-and-background/SKILL.md)
-- [Companion and communications](../../.agent/skills/ios-companion-communications/SKILL.md)
-- [Device and release proof](../../.agent/skills/ios-device-release-proof/SKILL.md)
+- [Apple-native design and Liquid Glass verification](../ios-native-design-verification/SKILL.md)
+- [On-device intelligence evaluation](../ios-on-device-intelligence-evaluation/SKILL.md)
+- [System surfaces and background](../ios-system-surfaces-and-background/SKILL.md)
+- [Companion and communications](../ios-companion-communications/SKILL.md)
+- [Device and release proof](../ios-device-release-proof/SKILL.md)
 
 #### Sources
 
@@ -511,7 +511,7 @@ Use this skill to keep purchase, payment, identity, secrets, device-user authent
 
 - Inspect the actual Xcode targets, deployment target, product type, capabilities, entitlements, App Store Connect/merchant/service configuration, server contract, Keychain access groups, URL/transport layer, privacy copy, and existing entitlement/authentication adapters.
 - Read the [commerce/identity/security route](../../knowledge-base/40-framework-routes/05-commerce-identity-and-security.md), [StoreKit and entitlements deep dive](../../knowledge-base/41-framework-deep-dives/02-storekit-and-entitlements.md), [networking/security/identity deep dive](../../knowledge-base/42-framework-deep-dives/03-networking-security-and-identity.md), and [commerce/identity/security recipes](../../knowledge-base/70-code-recipes/17-commerce-identity-and-security-recipes.md).
-- Read the [data/device-services package](../../.agent/skills/ios-data-and-device-services/SKILL.md) when local persistence, CloudKit, account state, or protected personal data is involved. Refresh the exact official Apple pages in the Sources section before relying on an API, entitlement, region/device rule, or server-validation requirement.
+- Read the [data/device-services package](../ios-data-and-device-services/SKILL.md) when local persistence, CloudKit, account state, or protected personal data is involved. Refresh the exact official Apple pages in the Sources section before relying on an API, entitlement, region/device rule, or server-validation requirement.
 
 #### Route workflow
 
@@ -582,7 +582,7 @@ For implementation, change only the requested target and directly related adapte
 - [StoreKit and entitlements](../../knowledge-base/41-framework-deep-dives/02-storekit-and-entitlements.md)
 - [Networking, security, and identity](../../knowledge-base/42-framework-deep-dives/03-networking-security-and-identity.md)
 - [Commerce, identity, and security recipes](../../knowledge-base/70-code-recipes/17-commerce-identity-and-security-recipes.md)
-- [Data and device services package](../../.agent/skills/ios-data-and-device-services/SKILL.md)
+- [Data and device services package](../ios-data-and-device-services/SKILL.md)
 - [Permission, entitlement, and privacy checklist](../../knowledge-base/60-verification/04-permission-entitlement-and-privacy-checklist.md)
 - [Build, device, and release checklist](../../knowledge-base/60-verification/01-build-device-and-release-checklist.md)
 
@@ -1136,8 +1136,8 @@ For implementation, change only the requested screen/component and directly rela
 
 #### Related routes and recipes
 
-- [SwiftUI native design package](../../.agent/skills/swiftui-native-design/SKILL.md)
-- [Liquid Glass design package](../../.agent/skills/liquid-glass-design/SKILL.md)
+- [SwiftUI native design package](../swiftui-native-design/SKILL.md)
+- [Liquid Glass design package](../liquid-glass-design/SKILL.md)
 - [Apple-native design deep dives](../../knowledge-base/21-design-deep-dives/README.md)
 - [SwiftUI and Liquid Glass recipes](../../knowledge-base/70-code-recipes/00-swiftui-and-liquid-glass-recipes.md)
 - [Accessibility, adaptation, and native design recipes](../../knowledge-base/70-code-recipes/12-accessibility-adaptive-and-native-design-recipes.md)
@@ -1177,7 +1177,7 @@ Use this skill to choose the narrowest intelligence route and keep availability,
 
 - Inspect the actual Xcode targets, deployment target, device family, model resources, language assets, entitlements, usage descriptions, persistence, network/server routes, and current AI adapter.
 - Read the [AI route selector](../../knowledge-base/30-on-device-ai/00-ai-route-selector.md), [Foundation Models mental model](../../knowledge-base/30-on-device-ai/01-foundation-models-mental-model.md), [privacy/availability/fallback guidance](../../knowledge-base/30-on-device-ai/06-privacy-availability-and-fallback.md), [availability/proof matrix](../../knowledge-base/30-on-device-ai/08-on-device-ai-availability-and-proof-matrix.md), and [evaluation/safety/fallback recipe](../../knowledge-base/31-on-device-ai-recipes/05-evaluation-safety-and-fallback.md).
-- Read the [on-device AI feature package](../../.agent/skills/on-device-ai-feature/SKILL.md) and the narrower [media/ML/input package](../../.agent/skills/ios-media-ml-and-inputs/SKILL.md) when capture, Vision, Core ML, audio, or NFC state is part of the route.
+- Read the [on-device AI feature package](../on-device-ai-feature/SKILL.md) and the narrower [media/ML/input package](../ios-media-ml-and-inputs/SKILL.md) when capture, Vision, Core ML, audio, or NFC state is part of the route.
 - Refresh the exact official Apple pages in the Sources section before relying on model availability, device/region/language behavior, API spelling, output safety, tool calling, context limits, or privacy claims.
 
 #### Route workflow
@@ -1254,7 +1254,7 @@ For implementation, change only the requested target and directly related adapte
 
 #### Related routes and recipes
 
-- [On-device AI feature package](../../.agent/skills/on-device-ai-feature/SKILL.md)
+- [On-device AI feature package](../on-device-ai-feature/SKILL.md)
 - [AI route selector](../../knowledge-base/30-on-device-ai/00-ai-route-selector.md)
 - [Foundation Models mental model](../../knowledge-base/30-on-device-ai/01-foundation-models-mental-model.md)
 - [Privacy, availability, safety, and fallback](../../knowledge-base/30-on-device-ai/06-privacy-availability-and-fallback.md)
@@ -1550,7 +1550,7 @@ Return these artifacts in the project or knowledge base:
 - [Xcode target/module plan](../../knowledge-base/90-templates/xcode-target-and-module-plan.md)
 - [Target-aware feature scaffold](../../knowledge-base/90-templates/target-aware-feature-scaffold.md)
 - [Target configuration and artifact checklist](../../knowledge-base/60-verification/06-target-configuration-and-artifact-checklist.md)
-- [Capability route planner](../../.agent/skills/ios-capability-route-planner/SKILL.md)
+- [Capability route planner](../ios-capability-route-planner/SKILL.md)
 
 #### Sources
 
@@ -1600,8 +1600,8 @@ artifacts.
 - Inspect the repository’s knowledge-base map, source registry, coverage and
   availability matrices, relevant route/design/recipe/proof pages, package
   references, and current distributable archive.
-- Read [refresh-ledger.md](../../.agent/skills/ios-source-refresh-and-availability/references/refresh-ledger.md) and
-  [provenance-and-evidence.md](../../.agent/skills/ios-source-refresh-and-availability/references/provenance-and-evidence.md).
+- Read [refresh-ledger.md](references/refresh-ledger.md) and
+  [provenance-and-evidence.md](references/provenance-and-evidence.md).
 - Reopen the exact official Apple/Swift pages and installed SDK interfaces. Use
   official primary sources for availability, entitlement, privacy, HIG, and
   release claims. Treat secondary examples as discovery only.
@@ -1938,9 +1938,9 @@ or TestFlight upload into a universal production or App Review claim.
   extensions, entitlements, privacy manifests, usage descriptions, packages,
   fixtures, and existing test results.
 - Read the [testing and release-assurance framework route](../../knowledge-base/42-framework-deep-dives/144-swiftui-testing-xctest-ui-device-release-assurance-route.md), [native-design and AI-evaluation design](../../knowledge-base/21-design-deep-dives/172-swiftui-testing-native-design-and-ai-evaluation.md), [capability route](../../knowledge-base/50-capability-recipes/175-swiftui-testing-xctest-ui-device-release-assurance-route.md), and [proof matrix](../../knowledge-base/60-verification/169-swiftui-testing-xctest-ui-device-release-assurance-proof-matrix.md).
-- Load [test-matrix.md](../../.agent/skills/ios-testing-and-release-assurance/references/test-matrix.md) for fixture, target, plan,
-  evidence, device, and release routing; load [release-audit.md](../../.agent/skills/ios-testing-and-release-assurance/references/release-audit.md)
-  when the task reaches archive/TestFlight; load [evaluation-fixtures.md](../../.agent/skills/ios-testing-and-release-assurance/references/evaluation-fixtures.md)
+- Load [test-matrix.md](references/test-matrix.md) for fixture, target, plan,
+  evidence, device, and release routing; load [release-audit.md](references/release-audit.md)
+  when the task reaches archive/TestFlight; load [evaluation-fixtures.md](references/evaluation-fixtures.md)
   when evaluating AI or the role bundle itself.
 - Refresh the official Swift Testing, XCTest, XCUIAutomation, accessibility,
   Xcode test-plan, performance, release-build, and distribution pages listed in

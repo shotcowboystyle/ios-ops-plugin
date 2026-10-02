@@ -22,9 +22,9 @@ or TestFlight upload into a universal production or App Review claim.
   extensions, entitlements, privacy manifests, usage descriptions, packages,
   fixtures, and existing test results.
 - Read the [testing and release-assurance framework route](../../knowledge-base/42-framework-deep-dives/144-swiftui-testing-xctest-ui-device-release-assurance-route.md), [native-design and AI-evaluation design](../../knowledge-base/21-design-deep-dives/172-swiftui-testing-native-design-and-ai-evaluation.md), [capability route](../../knowledge-base/50-capability-recipes/175-swiftui-testing-xctest-ui-device-release-assurance-route.md), and [proof matrix](../../knowledge-base/60-verification/169-swiftui-testing-xctest-ui-device-release-assurance-proof-matrix.md).
-- Load [test-matrix.md](../../.agent/skills/ios-testing-and-release-assurance/references/test-matrix.md) for fixture, target, plan,
-  evidence, device, and release routing; load [release-audit.md](../../.agent/skills/ios-testing-and-release-assurance/references/release-audit.md)
-  when the task reaches archive/TestFlight; load [evaluation-fixtures.md](../../.agent/skills/ios-testing-and-release-assurance/references/evaluation-fixtures.md)
+- Load [test-matrix.md](references/test-matrix.md) for fixture, target, plan,
+  evidence, device, and release routing; load [release-audit.md](references/release-audit.md)
+  when the task reaches archive/TestFlight; load [evaluation-fixtures.md](references/evaluation-fixtures.md)
   when evaluating AI or the role bundle itself.
 - Refresh the official Swift Testing, XCTest, XCUIAutomation, accessibility,
   Xcode test-plan, performance, release-build, and distribution pages listed in

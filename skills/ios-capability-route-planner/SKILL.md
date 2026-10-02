@@ -91,11 +91,11 @@ Return a compact table or document with these fields:
 - [Cross-framework feature lifecycle](../../knowledge-base/41-framework-deep-dives/06-cross-framework-feature-lifecycle.md)
 - [System-surface and extension composition](../../knowledge-base/43-system-framework-deep-dives/06-system-surface-and-extension-composition.md)
 - [Device and companion capability contracts](../../knowledge-base/42-framework-deep-dives/08-device-and-companion-capability-contracts.md)
-- [Apple-native design and Liquid Glass verification](../../.agent/skills/ios-native-design-verification/SKILL.md)
-- [On-device intelligence evaluation](../../.agent/skills/ios-on-device-intelligence-evaluation/SKILL.md)
-- [System surfaces and background](../../.agent/skills/ios-system-surfaces-and-background/SKILL.md)
-- [Companion and communications](../../.agent/skills/ios-companion-communications/SKILL.md)
-- [Device and release proof](../../.agent/skills/ios-device-release-proof/SKILL.md)
+- [Apple-native design and Liquid Glass verification](../ios-native-design-verification/SKILL.md)
+- [On-device intelligence evaluation](../ios-on-device-intelligence-evaluation/SKILL.md)
+- [System surfaces and background](../ios-system-surfaces-and-background/SKILL.md)
+- [Companion and communications](../ios-companion-communications/SKILL.md)
+- [Device and release proof](../ios-device-release-proof/SKILL.md)
 
 ## Sources
 
